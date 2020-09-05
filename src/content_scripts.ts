@@ -27,7 +27,7 @@ function addLink() {
       // リンクを埋め込む
       const link = document.createElement('a');
       link.href = `https://www.pixiv.net/artworks/${id}`;
-      link.innerText = "👉";
+      link.innerText = `👉 ${id}`;
       link.setAttribute('data-testid', `direct-link-${id}`);
 
       const altDiv = document.createElement('div');
