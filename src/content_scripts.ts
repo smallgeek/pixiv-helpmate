@@ -27,8 +27,15 @@ function addLink() {
       // リンクを埋め込む
       const link = document.createElement('a');
       link.href = `https://www.pixiv.net/artworks/${id}`;
-      link.innerText = `👉 ${id}`;
       link.setAttribute('data-testid', `direct-link-${id}`);
+      link.style.width = '118px';
+
+      const match = img.alt.match(/(\S+) (?<title>\S+) \- (\S+)のイラスト/);
+      if (match && match.groups) {
+        link.innerText = `👉 ${match.groups.title}`;
+      } else {
+        link.innerText = `👉 ${id}`;
+      }
 
       const altDiv = document.createElement('div');
 
