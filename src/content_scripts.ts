@@ -1,7 +1,10 @@
 'use strict';
 
 function addLink() {
-  const artworks = Array.from(document.querySelectorAll('.gtm-search-box-popular-artwork'));
+  const topPages = Array.from(document.querySelectorAll('.gtm-toppage-tag-popular-tag-illustration'));
+  const searchBoxes = Array.from(document.querySelectorAll('.gtm-search-box-popular-artwork'));
+
+  const artworks = topPages.concat(searchBoxes);
 
   for (const art of artworks) {
 
@@ -28,7 +31,10 @@ function addLink() {
       const link = document.createElement('a');
       link.href = `https://www.pixiv.net/artworks/${id}`;
       link.setAttribute('data-testid', `direct-link-${id}`);
-      link.style.width = '118px';
+      link.classList.add('hegAwd');
+
+      link.style.width = a.offsetWidth.toString() + 'px';
+      link.style.whiteSpace = 'inherit';
 
       const match = img.alt.match(/(\S+) (?<title>\S+) \- (\S+)のイラスト/);
       if (match && match.groups) {
@@ -38,6 +44,9 @@ function addLink() {
       }
 
       const altDiv = document.createElement('div');
+      if (art.classList.contains('gtm-toppage-tag-popular-tag-illustration')) {
+        altDiv.style.marginLeft = '24px';
+      }
 
       tags.removeChild(a);
       altDiv.appendChild(a);
