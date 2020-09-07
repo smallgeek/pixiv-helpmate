@@ -1,6 +1,6 @@
 'use strict';
 
-function addLink() {
+function addDirectLink() {
   const topPages = Array.from(document.querySelectorAll('.gtm-toppage-tag-popular-tag-illustration'));
   const searchBoxes = Array.from(document.querySelectorAll('.gtm-search-box-popular-artwork'));
 
@@ -56,5 +56,4 @@ function addLink() {
   }
 }
 
-const observer = new MutationObserver(addLink);
-observer.observe(document.body, {childList: true, subtree: true});
+(new MutationObserver(addDirectLink)).observe(document.body, {childList: true, subtree: true});

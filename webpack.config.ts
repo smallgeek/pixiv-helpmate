@@ -5,7 +5,8 @@ import CopyWebpackPlugin from 'copy-webpack-plugin'
 const config: ConfigurationFactory = () => {
   return {
     entry: {
-      content_scripts: path.join(__dirname, 'src', 'content_scripts.ts')
+      content_scripts: path.join(__dirname, 'src', 'content_scripts.ts'),
+      idea_page_scripts: path.join(__dirname, 'src', 'idea_page_scripts.ts')
     },
     output: {
       path: path.join(__dirname, 'dist'),

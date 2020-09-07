@@ -11,10 +11,15 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*.pixiv.net/*"],
+      "matches": ["https://*.pixiv.net/idea/*"],
       "js": [
-        "content_scripts.js"
+        "content_scripts.js",
+        "idea_page_scripts.js" 
       ]
+    },
+    {
+      "matches": ["https://*.pixiv.net/*"],
+      "js": [ "content_scripts.js" ]
     }
   ],
   "icons": {
