@@ -3,13 +3,21 @@
   "manifest_version": 2,
   "version": "1.0",
   "permissions": [
-    "https://*.pixiv.net/"
+    "https://*.pixiv.net/",
+    "https://*.i.pximg.net/"
   ],
   "browser_action": {
     "default_icon": "128.png",
     "default_title": "Pixiv Helpmate"
   },
   "content_scripts": [
+    {
+      "matches": ["https://*.pixiv.net/artworks/*"],
+      "js": [
+        "content_scripts.js",
+        "artworks_scripts.js" 
+      ]
+    },
     {
       "matches": ["https://*.pixiv.net/idea/*"],
       "js": [
