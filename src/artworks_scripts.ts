@@ -14,13 +14,20 @@ function addModeButton() {
         return;
     }
 
+    // TODO: Vue.js にする
     // ボタン埋め込み
-    const button = document.createElement('button');
-    button.innerText = 'グレースケール';
-    button.setAttribute('data-testid', `grayscale-button`);
-    button.onclick = onGrayScaleButtonClick;
+    const grayscaleButton = document.createElement('button');
+    grayscaleButton.innerText = 'グレースケール';
+    grayscaleButton.setAttribute('data-testid', `grayscale-button`);
+    grayscaleButton.onclick = onGrayScaleButtonClick;
 
-    section.appendChild(button);
+    const goldenRatioButton = document.createElement('button');
+    goldenRatioButton.innerText = '黄金比';
+    goldenRatioButton.setAttribute('data-testid', `goldenratio-button`);
+    goldenRatioButton.onclick = onGoldenRatioButtonClick;
+
+    section.appendChild(grayscaleButton);
+    section.appendChild(goldenRatioButton);
 
     observer.disconnect();
 }
@@ -70,6 +77,10 @@ async function onGrayScaleButtonClick(evt: Event) {
     */
     
     document.querySelector('figure.sc-1yvhotl-3.jFNHIP')?.appendChild(image);
+}
+
+function onGoldenRatioButtonClick(evt: Event) {
+
 }
 
 observer.observe(document.body, {childList: true, subtree: true});
